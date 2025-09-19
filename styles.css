@@ -1,0 +1,270 @@
+/* styles.css - FileMate AI (paleta: Cosmic Midnight) */
+
+/* Paleta Cosmic Midnight */
+:root{
+  --primary: #04142B;     /* navy profundo */
+  --secondary: #0F4C81;   /* azul royal */
+  --star: #FFD166;        /* dorado cálido (destellos) */
+  --bg-dark: #071330;     /* luz / fondo alterno */
+  --card: rgba(255,255,255,0.03); /* card sobre oscuro (sutil) */
+  --muted: #99b4cc;       /* textos secundarios */
+  --text-on-dark: #F2F8FF;/* color principal de texto */
+  --accent-grad: linear-gradient(90deg,var(--secondary), #2a6fbf);
+  --radius:12px;
+  --maxwidth:1100px;
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+  --glass: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+/* Reset y base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* fondo: degradado nocturno + patrón de estrellas sutil */
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(15,40,70,0.18), transparent 10%),
+              linear-gradient(180deg, var(--primary) 0%, var(--bg-dark) 100%);
+  color:var(--text-on-dark);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Opcional: overlay sutil de estrellas (no pesado) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,213,102,0.10), transparent 20%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.06), transparent 20%),
+    radial-gradient(1px 1px at 70% 10%, rgba(255,213,102,0.07), transparent 20%),
+    radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.05), transparent 20%);
+  background-size: 100% 100%;
+  mix-blend-mode: screen;
+  opacity:0.9;
+  z-index:0;
+}
+
+/* layout container */
+.container{
+  width:calc(100% - 40px);
+  max-width:var(--maxwidth);
+  margin:0 auto;
+  padding:40px 0;
+  position:relative;
+  z-index:1; /* por encima del overlay */
+}
+
+/* BRAND (logo + title) - integrado desde el HTML inline */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.site-logo {
+  width: 84px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: transparent;
+  /* ligero borde/halo para que se destaque sobre el fondo oscuro */
+  box-shadow: 0 6px 18px rgba(12,20,40,0.6), 0 1px 0 rgba(255,255,255,0.02) inset;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--text-on-dark);
+}
+@media (max-width: 560px) {
+  .site-logo { width: 64px; }
+  .brand h1 { font-size: 1.4rem; }
+}
+
+/* HERO */
+.hero{
+  background: linear-gradient(130deg, rgba(5,18,40,0.45), rgba(10,28,58,0.35));
+  padding:56px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  position:relative;
+  overflow:visible;
+}
+.hero::after{
+  /* brillo sutil detrás de la hero para sensación cósmica */
+  content:"";
+  position:absolute;
+  right:-120px;
+  top:-40px;
+  width:420px;
+  height:420px;
+  background: radial-gradient(closest-side, rgba(15,76,129,0.14), transparent 40%);
+  filter: blur(30px);
+  z-index:0;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:28px;
+  align-items:center;
+}
+.hero h1{
+  margin:0 0 8px 0;
+  font-size:2.1rem;
+  letter-spacing:-0.02em;
+}
+.subtitle{
+  margin:0;
+  color:var(--muted);
+  font-weight:600;
+}
+.lead{
+  margin:18px 0 0 0;
+  color:var(--text-on-dark);
+}
+.cta-row{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  border:1px solid transparent;
+  box-shadow:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn.primary{
+  background: linear-gradient(90deg,var(--secondary), #2a6fbf);
+  color:white;
+  box-shadow: 0 8px 30px rgba(15,76,129,0.28);
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--secondary);
+  border:1px solid rgba(15,76,129,0.18);
+}
+
+/* hero card */
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.02);
+  color:var(--text-on-dark);
+  z-index:2;
+}
+.card-header{
+  background: linear-gradient(90deg, rgba(15,76,129,0.06), rgba(42,111,191,0.04));
+  padding:12px 16px;
+  font-weight:700;
+  color:var(--text-on-dark);
+}
+.card-body{padding:16px}
+.card-body ul{margin:8px 0 0 18px}
+
+/* sections */
+.section{padding:28px 0; border-bottom:1px solid rgba(255,255,255,0.02)}
+.section h2{margin:0 0 12px 0; font-size:1.2rem; color:var(--text-on-dark)}
+
+/* grids */
+.grid{display:grid; gap:18px}
+.tech-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
+.tech-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;
+  border-radius:12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+  border:1px solid rgba(255,255,255,0.02);
+  color:var(--text-on-dark);
+}
+.tech-card h3{margin:6px 0 6px 0}
+.tech-card p{margin:0; color:var(--muted)}
+
+.icon{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  background: linear-gradient(135deg, rgba(15,76,129,0.12), rgba(42,111,191,0.08));
+  color:var(--secondary);
+  margin-bottom:8px;
+}
+
+/* team */
+.team-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
+.member-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+  border:1px solid rgba(255,255,255,0.02);
+  color:var(--text-on-dark);
+}
+.avatar{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:999px;
+  display:block;
+  margin:0 auto 12px auto;
+  border:4px solid rgba(255,255,255,0.04);
+  box-shadow:0 6px 20px rgba(2,6,23,0.6);
+}
+.member-card h3{margin:8px 0 6px 0}
+.role{color:var(--muted); margin:0 0 8px 0;}
+.links a{color:var(--secondary); text-decoration:none; font-weight:600;}
+
+/* terminal pre */
+.terminal{
+  background: linear-gradient(180deg, rgba(2,6,23,0.8), rgba(2,8,25,0.9));
+  color:#e6eef8;
+  padding:16px;
+  border-radius:10px;
+  overflow:auto;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.note{color:var(--muted); font-size:0.95rem; margin-top:10px}
+
+/* footer */
+.site-footer{padding:32px 0 48px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px; color:var(--muted)}
+.site-footer a{color:var(--muted); text-decoration:none}
+.small{font-size:0.9rem; color:var(--muted)}
+
+/* responsive */
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{flex-direction:column; text-align:center}
+}
+@media (max-width:560px){
+  .tech-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .container{width:calc(100% - 28px)}
+  .hero h1{font-size:1.6rem}
+}
+
+/* helper: small golden star dot that you can place near icon if needed */
+.star-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--star);box-shadow:0 4px 12px rgba(255,209,102,0.12);
+  display:inline-block;
+}
+
+/* utility: subtle focus ring for accessibility */
+:focus{outline: none}
+a:focus, button:focus { box-shadow: 0 0 0 3px rgba(15,76,129,0.18); border-radius:8px; }

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FileMate AI — Asistente de Archivos</title>
+
+  <!-- Favicons / Logo (guardar en assets/) -->
+  <link rel="icon" href="assets/logo-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/logo-favicon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="description" content="FileMate AI — asistente para manipular archivos con comandos de voz y texto. Streamlit + Gemini + LangChain." />
+
+
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <!-- BRAND: logo + title -->
+        <div class="brand" aria-label="FileMate AI — marca">
+          <!-- Ruta sugerida: assets/logo-horizontal.svg (vector). Si no tienes SVG usar PNG. -->
+          <img src="assets/logo-favicon.png" alt="FileMate AI logo" class="site-logo" onerror="this.src='assets/logo-horizontal.png'"/>
+          <div>
+            <h1>FileMate AI</h1>
+            <p class="subtitle">Asistente inteligente para manipular archivos y carpetas mediante comandos de voz o texto.</p>
+          </div>
+        </div>
+
+        <p class="lead">
+          FileMate AI interpreta tus comandos (texto o voz) con Google Gemini y ejecuta conversiones y operaciones sobre archivos usando herramientas especializadas.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#probar">Probar en local</a>
+          <a class="btn ghost" href="https://github.com/LucasIsac/Sem-II.git" target="_blank" rel="noopener">Repositorio en GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-header">Proyecto</div>
+        <div class="card-body">
+          <strong>Estructura:</strong>
+          <ul>
+            <li><code>app.py</code> (Streamlit)</li>
+            <li><code>agent.py</code> (LangChain + Gemini)</li>
+            <li><code>tools.py</code> (Pillow, PyPDF2, etc.)</li>
+          </ul>
+          <p class="small">Lista para ejecutarse localmente con Streamlit.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>¿Qué hace FileMate AI?</h2>
+      <p>
+        Permite subir archivos, recibir comandos por texto o voz (ej.: "Convierte informe.pdf a Word"), y ejecutar acciones como renombrar, convertir formatos y procesar imágenes.
+        La interfaz es Streamlit y la inteligencia la orquesta un agente que usa LangChain con Google Gemini.
+      </p>
+    </section>
+
+    <section id="technologies" class="section">
+      <h2>Tecnologías aplicadas</h2>
+      <div class="grid tech-grid">
+        <article class="tech-card">
+          <div class="icon">Py</div>
+          <h3>Python</h3>
+          <p>Lenguaje principal del backend y herramientas de procesamiento.</p>
+        </article>
+
+        <article class="tech-card">
+          <div class="icon">LLM</div>
+          <h3>Google Gemini</h3>
+          <p>Modelo usado para interpretar y razonar los comandos del usuario.</p>
+        </article>
+
+        <article class="tech-card">
+          <div class="icon">LC</div>
+          <h3>LangChain</h3>
+          <p>Orquestador entre el LLM y las herramientas del proyecto.</p>
+        </article>
+
+        <article class="tech-card">
+          <div class="icon">UI</div>
+          <h3>Streamlit</h3>
+          <p>Interfaz web rápida para probar la app localmente.</p>
+        </article>
+
+        <article class="tech-card">
+          <div class="icon">API</div>
+          <h3>CloudConvert</h3>
+          <p>Conversión robusta entre formatos como PDF↔Word.</p>
+        </article>
+
+        <article class="tech-card">
+          <div class="icon">T</div>
+          <h3>Otras librerías</h3>
+          <p>Pillow, PyPDF2, python-docx, pdf2docx, SpeechRecognition, ElevenLabs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <h2>Equipo</h2>
+      <div class="grid team-grid">
+        <article class="member-card">
+          <img src="https://via.placeholder.com/240" alt="Lucas Isaac De La Fuente" class="avatar"/>
+          <h3>Lucas Isaac De La Fuente</h3>
+          <p class="role">Desarrollador principal / Integración IA</p>
+          <p class="links"><a href="https://www.linkedin.com/in/lucasisac/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </article>
+
+        <article class="member-card">
+          <img src="https://via.placeholder.com/240" alt="Miembro 2" class="avatar"/>
+          <h3>Nombre Apellido</h3>
+          <p class="role">Frontend / UX</p>
+          <p class="links"><a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        </article>
+
+        <article class="member-card">
+          <img src="https://via.placeholder.com/240" alt="Miembro 3" class="avatar"/>
+          <h3>Nombre Apellido</h3>
+          <p class="role">DevOps / Tester</p>
+          <p class="links"><a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="probar" class="section">
+      <h2>Cómo probar (rápido)</h2>
+      <pre class="terminal">
+git clone https://github.com/LucasIsac/Sem-II.git
+python -m venv venv
+# Windows:
+# venv\Scripts\activate
+# Linux / Mac:
+# source venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+      </pre>
+      <p class="note">Asegúrate de configurar las API keys en <code>.env</code> antes de iniciar.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><a href="https://github.com/LucasIsac/Sem-II.git" target="_blank" rel="noopener">Repositorio del proyecto</a> · Licencia MIT</p>
+      <p>© FileMate AI — 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
