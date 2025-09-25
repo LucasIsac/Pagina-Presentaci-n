@@ -83,24 +83,7 @@ streamlit run app.py`
             </pre>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-8 p-6 bg-yellow-800/20 border border-yellow-600 rounded-xl"
-          >
-            <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-yellow-900 text-sm font-bold">!</span>
-              </div>
-              <div>
-                <h4 className="font-semibold text-yellow-200 mb-2 tracking-tight">Importante</h4>
-                <p className="text-yellow-100 font-medium">
-                  Asegúrate de configurar las API keys en el archivo <code className="bg-yellow-700 px-2 py-1 rounded font-mono text-yellow-100">.env</code> antes de iniciar la aplicación.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
