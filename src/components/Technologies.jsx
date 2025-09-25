@@ -32,10 +32,10 @@ const Technologies = () => {
       color: "from-red-400 to-pink-500"
     },
     {
-      name: "CloudConvert",
-      icon: "☁️",
-      description: "Conversión robusta entre formatos como PDF↔Word.",
-      color: "from-purple-400 to-indigo-500"
+      name: "Mangle",
+      icon: "🔗",
+      description: "Lenguaje de Google para bases de datos deductivas y razonamiento de datos.",
+      color: "from-blue-400 to-cyan-500"
     },
     {
       name: "Otras librerías",

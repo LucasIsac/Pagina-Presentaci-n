@@ -10,24 +10,21 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Lucas Isaac De La Fuente",
-      role: "Desarrollador principal / Integración IA",
       image: "assets/lucas.jpeg",
-      linkedin: "https://www.linkedin.com/in/lucasisac/",
-      github: "#",
+      linkedin: "https://www.linkedin.com/in/lucas-isaac-de-la-fuente-071603287/",
+      github: "https://github.com/LucasIsac",
+      email: "lisaacdlf21@gmail.com"
+    },
+    {
+      name: "Peralta Martin Emiliano",
+      image: "assets/martin.jpg",
+      linkedin: "https://www.linkedin.com/in/martin-emiliano-peralta-4a826b236/",
+      github: "https://github.com/martinprlt",
       email: "#"
     },
     {
-      name: "Miembro del Equipo",
-      role: "Frontend / UX",
-      image: "https://via.placeholder.com/240",
-      linkedin: "#",
-      github: "#",
-      email: "#"
-    },
-    {
-      name: "Miembro del Equipo",
-      role: "DevOps / Tester",
-      image: "https://via.placeholder.com/240",
+      name: "Soreire Lautaro",
+      image: "assets/lautY.jpeg",
       linkedin: "#",
       github: "#",
       email: "#"

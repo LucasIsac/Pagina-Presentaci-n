@@ -19,12 +19,17 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex items-center space-x-4"
           >
-            <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center">
-              <FileText className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">FileMate AI</h1>
-              <p className="text-gray-300 font-medium">Asistente inteligente de archivos</p>
+            <div className="flex items-center space-x-3">
+              {/* Logo */}
+              <img 
+                src="../assets/logo2.png" 
+                alt="Eva Files Logo" 
+                className="w-16 h-16 object-contain rounded-xl"
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-white tracking-tight">Eva Files</h1>
+                <p className="text-gray-300 font-medium">Asistente inteligente de archivos</p>
+              </div>
             </div>
           </motion.div>
 
